@@ -1,0 +1,49 @@
+:root{
+  --bg:#020802; --panel:#081408; --text:#74ff74; --dim:#2fae2f; --border:#35d135; --title:#1b3d1b;
+}
+*{box-sizing:border-box}
+html,body{
+  width:100%; height:100%; margin:0; padding:0; border:0; overflow:hidden;
+  background:#111; font-family:"Courier New", monospace;
+}
+#desktop{
+  width:100vw; height:100vh; margin:0; padding:0; border:0;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  background:
+    radial-gradient(circle at 25% 10%, rgba(255,255,255,.05), transparent 30%),
+    linear-gradient(135deg, #202020, #030303);
+}
+.window{
+  width:min(980px, 100vw); height:min(720px, calc(100vh - 24px));
+  border:3px ridge #bdbdbd; background:#c0c0c0;
+  box-shadow:0 14px 42px rgba(0,0,0,.62);
+  display:flex; flex-direction:column; margin:0; padding:0;
+}
+.titlebar{
+  min-height:28px; display:flex; align-items:center; justify-content:space-between; padding:0 8px;
+  color:white; background:linear-gradient(90deg,#000080,#1084d0); font-weight:bold; font-size:14px;
+}
+.buttons{display:flex; gap:5px}.buttons span{width:15px;height:15px;border:2px outset #eee;background:#c0c0c0;display:inline-block}
+.toolbar{padding:5px; border-bottom:2px inset #eee; display:flex; gap:5px; flex-wrap:wrap}
+button{font-family:inherit; border:2px outset #eee; background:#d6d6d6; padding:3px 9px; cursor:pointer; font-size:13px}
+button:active{border-style:inset}
+#terminal{
+  flex:1; min-height:0; overflow:auto; padding:10px 12px; color:var(--text); background:var(--bg); border:3px inset #888;
+  line-height:1.25; text-shadow:0 0 6px color-mix(in srgb, var(--text) 60%, transparent);
+  white-space:pre-wrap; font-size:14px;
+}
+.line{margin:0 0 2px}.sys{color:var(--text)}.dim{color:var(--dim)}.warn{color:#ff7070}.ok{color:#b8ffb8}.cmdline{color:#fff}
+#commandForm{
+  display:flex; align-items:center; padding:6px 8px; gap:8px; background:var(--panel); border-top:2px solid var(--border); color:var(--text);
+}
+#prompt{white-space:nowrap}
+#cmd{
+  flex:1; background:transparent; border:0; outline:0; color:var(--text);
+  font:inherit; caret-color:var(--text); text-transform:none; min-width:0;
+}
+footer{color:#aaa; height:18px; line-height:18px; font-size:11px; text-align:center; overflow:hidden; white-space:nowrap; width:100%;}
+body.amber{--bg:#100900;--panel:#1c1000;--text:#ffbf4a;--dim:#b8791e;--border:#d98d20}
+body.blue{--bg:#020818;--panel:#06122b;--text:#76d7ff;--dim:#2a87b4;--border:#39a6d6}
+body.white{--bg:#070707;--panel:#151515;--text:#eeeeee;--dim:#9e9e9e;--border:#cfcfcf}
+@media(max-width:700px){.window{height:100vh}.toolbar button{font-size:12px;padding:3px 6px}footer{display:none}#terminal{font-size:13px;padding:8px}}
+@media(max-height:760px){.window{height:calc(100vh - 18px)}#terminal{font-size:13px;line-height:1.22}.titlebar{min-height:26px}.toolbar{padding:4px}#commandForm{padding:5px 8px}}
